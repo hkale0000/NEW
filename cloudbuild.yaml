@@ -17,18 +17,18 @@ steps:
       - asia-south1-c
       - --
       - pwd &&
-      - rm -rf google-repo &&
-      - mkdir google-repo &&
+#       - rm -rf google-repo &&
+#       - mkdir google-repo &&
       - cd google-repo &&
       - pwd && 
-      - git init &&
-      - git remote add origin https://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@github.com/hkale0000/NEW.git &&
+#       - git init &&
+#       - git remote add origin https://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@github.com/hkale0000/NEW.git &&
       - git pull origin master &&
       - ls -la &&
       - cat cloudbuild.yaml &&
       - cd /var/www/html &&
       - ls -la &&
-      - git pull 
+#       - git pull 
 
        
 
