@@ -1,0 +1,52 @@
+
+
+steps:
+  #First Clone from Google Cloud Source Repository 
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone','https://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@github.com/hkale0000/NEW.git']
+
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: 
+      - compute
+      - ssh
+      - hrishikesh.kale@trucsr-staging
+      - --project
+      - data-sunlight-279004
+      - --zone
+      - asia-south1-c
+      - --
+      - pwd &&
+      - rm -rf google-repo &&
+      - mkdir google-repo &&
+      - cd google-repo &&
+      - pwd && 
+      - git init &&
+      - git remote add origin https://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@github.com/hkale0000/NEW.git &&
+      - git pull origin master &&
+      - ls -la &&
+      - cat cloudbuild.yaml &&
+      - cd /var/www/html &&
+      - ls -la &&
+      - git pull 
+
+       
+
+substitutions:
+    #GCP Specific Configuration
+    _PROJECT: data-sunlight-279004
+    _REPO_NAME: trucsr_stage
+    
+    #_Server_Instance_Name: xyz-$SHORT_SHA
+    _SERVER_INSTANCE_NAME: trucsr-staging-1
+    
+    #Zone Details
+    _ZONE: asia-south1-c
+
+    #Git branch name.
+    BRANCH_NAME: master
+
+
+options:
+    substitution_option: 'ALLOW_LOOSE'
+
