@@ -27,8 +27,8 @@ steps:
       - ls -la &&
       - cat cloudbuild.yaml &&
       - cd /var/www/html &&
-      - ls -la &&
-#       - git pull 
+      - ls -la
+
 
        
 
